@@ -7,8 +7,7 @@
 
 // Examples
 NSString name = @"Raylan";
-NSString fullName = [NSString stringWithFormat:@"%@ Givens"]; // fullname is
-equal to 'Raylan Givens'
+NSString fullName = [NSString stringWithFormat:@"%@ Givens"]; // fullname is equal to 'Raylan Givens'
 ```
 
 ##Getting a String's Length
@@ -17,8 +16,7 @@ equal to 'Raylan Givens'
 
 // Examples
 NSString *randomSentence = @"Fun in the sun!";
-NSUInteger sentenceLength = [randomSentence length]; // sentenceLength is equal
-to 15
+NSUInteger sentenceLength = [randomSentence length]; // sentenceLength is equal to 15
 ```
 
 ##Getting Characters & Bytes
