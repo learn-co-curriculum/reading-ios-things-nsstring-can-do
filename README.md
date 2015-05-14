@@ -6,8 +6,8 @@
 + (instancetype)stringWithFormat:(NSString *)format, ...
 
 // Examples
-NSString name = @"Raylan";
-NSString fullName = [NSString stringWithFormat:@"%@ Givens"]; // fullname is equal to 'Raylan Givens'
+NSString *name = @"Raylan";
+NSString *fullName = [NSString stringWithFormat:@"%@ Givens", name];
 ```
 
 ##Getting a String's Length
