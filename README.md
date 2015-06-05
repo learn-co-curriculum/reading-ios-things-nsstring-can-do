@@ -3,7 +3,7 @@
 ## Objectives:
 1. Understand the basic nature of a string.
 2. Learn the primary ways of manipulating strings.
-3. Understand string interpolation (string formatting).
+3. Learn how to create an interpolated string (a.k.a. "format string").
 
 ## Introduction
 
