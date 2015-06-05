@@ -7,7 +7,7 @@
 
 ## Introduction
 
-As we've already mentioned that a string is a type of variable which is used to store information as text. While they can have slightly different mechanics, they are common among all higher-level programming languages. In Objective-C, the base string class is `NSString`. 
+As we've already mentioned that a string is a type of variable which is used to store information as text. You can think of a string as "a string of characters". While they can have slightly different mechanics between languages, they are common among all higher-level programming languages. In Objective-C, the base string class is `NSString`. 
 
 **// Flat-fact:** *The* `NS-` *prefix on the Objective-C classes in the CoreFoundation library refer to the NeXTSTEP computer, the product of Steve Jobs' company NeXT, Inc. He had founded it in 1976 but focused on it after he was forced out of Apple in 1985. Apple later acquired NeXT, Inc. in 1997 and the NeXTSTEP operating system became part of the framework for Mac OS and iOS.*
 
@@ -23,7 +23,7 @@ NSString *welcome = @"Welcome to the Flatiron School!";
 
 It's that easy.
 
-**Top Tip:** *Avoid naming your instance variables after their class name, e. g.* `NSString *string` *or* `NSInteger int`. *While it's unlikely, doing this could cause the language to collide with itself. Be descriptive with your variable names. Their purpose should be obvious just from the variable name.*
+**Top Tip:** *Avoid naming your instance variables directly after their class name, e. g.* `NSString *string` *or* `NSInteger integer`. *While it's unlikely, doing this could cause the language to collide with itself. Learn to be descriptive with your variable names. The variable's contents should be obvious just from the variable name.*
 
 ## Manipulating Strings
 
@@ -33,7 +33,7 @@ Manipulating the case of a characters in a string can sometimes be useful. Calli
 
 ***A Note on Type Cases:***
 
-The Objective-C language utilizes a fusion of what are called "camel case" and "capital case." Both of these omit spaces in favor of capitalizing the first letter of each word. They differ in that camel case begins with a lowercase letter, while capital case begins with an uppercase letter. It is considered good practice to use camelCase 
+The Objective-C language utilizes a fusion of what are called "camel case" and "capital case." Both of these omit spaces in favor of capitalizing the first letter of each word. They differ in that camel case begins with a lowercase letter, while capital case begins with an uppercase letter.
 
 ```
 camelCaseIsUsedToNameInstanceVariablesAndMethods
@@ -46,19 +46,20 @@ PascalCaseIsAnotherNameForCapitalCase
 hypen-case-is-common-in-bash
 snake_case_is_common_in_windows
 ```
+It is considered good practice to use camelCase for variable and method names, and reserve capital case for class names. We'll explain this distinction between instances and classes in a later reading; for now, just recognize that there *is* a disctinction.
 
-**Top Tip:** *When typing a name in camel case which beings with an acronym, lowercase the entire acronym, as in* `apiClient` *and* `jsonResponse`.
+**Top Tip:** *When typing a name in camel case which begins with an acronym, it is good practice to type the entire acronym in lowercase, as in* `apiClient` *and* `jsonResponse`.
 
 ### String Length
 
-Sometimes you need to know how many characters are in a string that you don't have (perhaps one provided by a user). Every `NSString` variable automatically keeps track of how many characters it contains. There's a simple method named `length` that will ask the recipient string how many characters it contains in the form of an `NSUInteger`.
+Sometimes you need to know how many characters are in a string—usually one that you won't have until run time (perhaps one provided by a user). Every `NSString` variable automatically keeps track of how many characters it contains. There's a simple method named `length` that will ask the recipient string how many characters it contains in the form of an `NSUInteger`.
 
 
 ```objc
 NSString *username = @"mark";
 NSUInteger usernameLength = [username length];
 
-NSLog(@"%lu", usernameLength);
+NSLog(@"%lx", usernameLength);
 ```
 This will print the string's length which is `4`.
 
@@ -75,7 +76,7 @@ NSLog(welcome);
 
 ### String Division
 
-If strings can be combined, then they can be separated too. There are some handy methods which allow you to split a string based on a variety of criteria.
+If strings can be combined, then we can expect that they can be separated too. There are some handy methods which allow you to split a string based on a variety of criteria.
 
 
 ```objc
@@ -100,7 +101,7 @@ This prints: `Flatiron School!`.
 
 ### Replacing Substrings
 
-The `stringByReplacingOccurencesOfString:withString:` method allows you to just that—create a new string with each of its selected component type replaced with a new component. That could be something as simple as replacing an `&amp` with the word "and".
+The `stringByReplacingOccurencesOfString:withString:` method allows you to do just that—create a new string with each of its selected component type replaced with a new component. That could be something as simple as replacing an `&amp` with the word "and".
 
 ```objc
 NSString *instructorNames = @"Joe, Tim, Tom, Jim, &amp Mark!";
@@ -124,7 +125,7 @@ This will print: `Joe! Tim! Tom! Jim! and Mark!`.
 
 ### String Comparators
 
-You can compare two strings to see if they are a match. There are several methods of varying precision that you can use to do this. Using the `isEqualToString:` method will only return `true` if the strings are exactly alike. This is useful for something like a password check:
+You can compare two strings to see if they are a match. There are several methods of varying precision which you can use to do this. Using the `isEqualToString:` method will only return `true` if the strings are exactly alike. This is useful for something like a password check:
 
 ```objc
 NSString *password = @"p@ssw0rd";
@@ -134,6 +135,9 @@ if (isValidPassword) {
     NSLog(@"Welcome to the Flatiron School!");
 }
 ```
+**Top Tip:** *A common mistake in comparing strings is using the* `==` *("is equal to") mathematical comparator. This doesn't work with strings because you can't perform math on text so* `==` *will always evaluate to* `false` *when used on strings, even if they are actually a match. The* `isEqualToString` ***must*** *be used in order for your comparison of strings to evaluate to* `true`.
+
+
 There is the `caseInsensitiveCompare` method which will ignore capitalization. It's equivalent to running `lowercaseString` on both strings and then comparing them with `isEqualToString:`, but that's more code and more work.
 
 ```objc
@@ -151,15 +155,15 @@ The `compare:options:range:locale` method family will be useful once you learn h
 
 #### Converting to NSInteger
 
-A number saved as a string is visible to the processor as text—that's fine for humans to read, but math can't be operated on it. To convert a string to an `NSInteger`, there's a handy method named `integerValue` that you can run on a string which contains a value you wish to access. There's a method to convert a string to each of the data types. Here's an example of the `integerValue` method:
+A number saved as a string is visible to the processor as text—that's fine for humans to read, but math can't be performed on it. To convert a string to an `NSInteger`, there's a handy method named `integerValue` that you can run on a string which contains a value that you wish to access. While there's a method to convert a string to each of the data types, here's an example of the `integerValue` method:
 
 ```objc
 NSString *ageString = @"29";
-NSInteger age = [ageString integerValue];
+NSUInteger age = [ageString integerValue];
 
 age++;  // birthday party!
 
-NSLog(@"%lu", age);
+NSLog(@"%lx", age);
 ```
 This will print: `30`.
 
@@ -173,69 +177,56 @@ String formatting is useful when you need to create a string that contains other
 
 #### NSLog()
 
-You've already been introduced to the function of `NSLog()` printing simple strings to the debugger console. However, `NSLog()` accepts an **interpolated string** as its first argument, and a theoretically-endless list of variables to include. The only limitation is that each variable must be matched up ***sequentially*** with a format specifier ***of the correct type*** in the interpolated string.
+You've already been introduced to `NSLog()` by printing simple strings to the debugger console. However, `NSLog()` accepts an **interpolated string** (called the "**format string**") as its first argument, and a theoretically-endless list of variables to include. The only limitation is that each variable must be matched up ***sequentially*** with a format specifier ***of the correct type*** in the format string.
 
 #### Format Specifiers
 
-Format specifiers fulfill the role of designating where a value belongs within the interpolation string. You'll primarily use `%@` for strings, though for integers and data types (which we'll explain later), the common format specifiers you'll use are
+Format specifiers fulfill the role of designating where a value belongs within the format string. You'll primarily use `%@` for strings, though for integers and data types (which we'll explain later), the most common format specifiers which you'll use are:
 
 
 | Specifier | Description |
 |:---------:|:----------- |
-| `%@`      | Description |
-| `%li`     |  |
-
-
-
+| `%@`      | Variables which are not data types (i.e. `NSString`, `NSNumber`). |
+| `%li``%ld``%lx` | `NSInteger` |
+| `%lu``%lx`| `NSUInteger` |
+| `%f`      | `CGFloat` |
 
 
 **Top Tip:** *The* `NSString` *notation for the '%' ("percent sign" or "modulus") itself is* `%%`. 
 
-====^ Mark ^====
+Xcode will suggest a change if you enter a format specifier which doesn't correctly match up with the type of the variable that it links to, so don't stress yourself out about memorizing [all of the different format specifiers](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/Strings/Articles/formatSpecifiers.html) available for you to use. Most of the ones not including in the table above only have specific situations for which you'll need them and Xcode should point them out to you anyway.
 
-Woah, that sounds awfully fancy. Remember before when we NSLog'd our greeting?
+#### Creating an Interpolated String
 
+The in-code definitions of interpolated strings are called "formats". In addition to `NSLog()`, you can submit an interpolating string to any method which calls for a "format" argument. Common methods which you'll see are `NSString`'s `stringWithFormat:` and `stringByAppendingFormat:` methods, `NSMutableString`'s `appendFormat:` method, and `NSPredicate`'s `predicateWithFormat:` method.
 
-```objc
-NSString *greeting = @"Welcome to The Flatiron School!";
-
-
-NSLog(greeting); // prints Welcome to The Flatiron School!
-```
-Well what if you wanted to say something else, as well your variable? 
-Using variables, we can do this:
-
+We mentioned above when discussing `NSLog()` that the anatomy of an interpolated string is in two parts:
+   
+   * the string that you wish to be formatted which includes the format specifiers, referred to as the "**format string**", and
+   * the list of variables, separated by commas (`,`), which match up by order to the format specifiers within the format string that you just wrote. 
 
 ```objc
-NSString *greeting = @"Welcome to The Flatiron School!";
+NSString *flatironSchool = @"the Flatiron School";
+NSString *kawaiiFace = @"(づ｡◕‿‿◕｡)づ";
 
-
-NSLog(@"Hi, my name is Chris! %@", greeting); 
-// prints Hi, my name is Chris! Welcome to the Flatiron School!
+NSLog(@"Welcome to %@! %@", flatironSchool, kawaiiFace);
 ```
-This is called *string interpolation* (don't worry about remembering the term), and what it means is that we can write an ordinary string and enter variables into it using *format specifiers*.
+This will print: `Welcome to the Flatiron School! (づ｡◕‿‿◕｡)づ`.
 
+**Top Tip:** *Be certain to close the format string with the trailing double-quote (*`"`*) before the comma (*`,`*) separating it from the first variable. A common mistake is wrapping the comma inside the double-quotes which then makes the comma a part of the format string and not part of your code. This causes the compiler to complain.*
 
-**Format specifiers are simply placeholders.** They always start with a % and have a single character depending on what type of variable is being passed in. The format specifier we use for strings is `%@`, as shown in the example.
-
-
-Once a string has format specifiers in it, put a comma and list the variables that you want to enter as they appear in the string (in order!). So let's try it out:
-
+Let's write an interpolated string which mixes a string variable with an integer variable:
 
 ```objc
-NSString *myName = @"Tom";
-NSInteger myAge = 24;
+NSString *mark = @"Mark";
+NSUInteger *marksAge = 29;
 
+NSString *greeting = [NSString stringWithFormat:@"Hello, my name is %@! I am %lx years old", mark, marksAge]; 
 
-NSLog(@"My name is %@ and I am %ld years old.", myName, myAge);
-// prints "My name is Tom and I am 24 years old." 
+NSLog(greeting);
 ```
-Here we see the `%@` gets replaced with `myName`, and the `%ld` gets replaced with `myAge`.
+This will print: `Hello, my name is Mark! I am 29 years old`.
 
+Did you notice how we called the `stringWithFormat:` method by sending it to `NSString` itself? That's because `stringWithFormat:`'s purpose is to create a new string—not to modify an existing string—so it's a method call that has to be sent to `NSString` itself. This makes `stringWithFormat:` a **class method**. We'll discuss this distinction in more detail when we talk about inheritance.
 
-Documentation on format specifiers [lives here](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/Strings/Articles/formatSpecifiers.html). You can take a look, but **don't worry about memorizing them** — the important part is that you're aware of how these placeholders work. Plus, XCode has built-in features to help with these, and you'll start to remember after you use them enough times. :)
-
-
----
-This may be a lot to take in all at once, but the best part is **now you have everything you need to know to start using variables in Objective-C!**
 
