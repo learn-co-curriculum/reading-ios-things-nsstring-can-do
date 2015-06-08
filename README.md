@@ -51,18 +51,24 @@ It is considered good practice to use camelCase for variable and method names, a
 
 **Top Tip:** *When typing a name in camel case which begins with an acronym, it is considered good practice to type the entire acronym in lowercase, as in* `apiClient` *and* `jsonResponse`. *However, you will notice that Apple does not follow this guideline on the framework methods.*
 
-### String Length
+### String Prefix & Suffix
 
-Sometimes you need to know how many characters are in a string—usually one that you won't have until run time (perhaps one provided by a user). Every `NSString` variable automatically keeps track of how many characters it contains. There's a simple method named `length` that will ask the recipient string how many characters it contains in the form of an `NSUInteger`.
+Sometimes you need just need to look at how a string begins or ends, especially when you won't have that string until run time (perhaps one provided by a user). There are two simple methods named `hasPrefix:` and `hasSuffix:` which will ask the recipient string if it begins or ends respectively with the submitted substring.
 
+Let's use in our example the ridiculously long full name of the [Marquis de Lafayette](http://en.wikipedia.org/wiki/Gilbert_du_Motier,_Marquis_de_Lafayette).
 
 ```objc
-NSString *username = @"mark";
-NSUInteger usernameLength = [username length];
+NSString *lafayette = 
+    @"Marquis Marie-Joseph Paul Yves Roch Gilbert du Motier de Lafayette";
 
-NSLog(@"%lu", usernameLength);
+BOOL isMarquis = [lafayette hasPrefix:@"Marquis"];
+BOOL isLafayette = [lafayette hasSuffix:@"Lafayette"];
+
+if (isMarquis & isLafayette) {
+    NSLog(@"Ladies and gentlemen, the Marquis de Lafayette");
+}
 ```
-This will print the string's length which is `4`.
+This will print the Marquis' introduction.
 
 ### String Concatenation
 
