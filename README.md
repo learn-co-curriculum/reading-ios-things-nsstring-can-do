@@ -64,7 +64,7 @@ NSString *lafayette =
 BOOL isMarquis = [lafayette hasPrefix:@"Marquis"];
 BOOL isLafayette = [lafayette hasSuffix:@"Lafayette"];
 
-if (isMarquis & isLafayette) {
+if (isMarquis && isLafayette) {
     NSLog(@"Ladies and gentlemen, the Marquis de Lafayette");
 }
 ```
