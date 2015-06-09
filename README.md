@@ -11,7 +11,7 @@ We've already mentioned that a string is a type of variable which is used to sto
 
 **// Flat-fact:** *The* `NS-` *prefix on the Objective-C classes in the CoreFoundation library refer to the NeXTSTEP computer, the product of Steve Jobs' company NeXT, Inc. He had founded it in 1976 but focused on it after he was forced out of Apple in 1985. Apple later acquired NeXT, Inc. in 1997 and the NeXTSTEP operating system became part of the framework for Mac OS and iOS.*
 
-We've already shown a few examples of the methods on `NSString`, namely `uppercaseString`, `lowercaseString`, and `stringByAppendingString:`. These are just a few of the ways you can manipulate strings.
+We've already shown a few examples of the methods on `NSString`; namely `uppercaseString`, `lowercaseString`, and `stringByAppendingString:`. These are just a few of the ways you can manipulate strings.
 
 ## Creating Strings
 
@@ -92,7 +92,7 @@ NSArray *instructorArray =
     [instructorNamesFromCSV componentsSeparatedByString:@","];
 
 NSString *mark = instructorArray[4];
-NSLog(mark);
+NSLog(@"%@", mark);
 ```
 This prints: `Mark`.
 
@@ -104,7 +104,7 @@ NSLog(@"%@", where);
 ```
 This prints: `Flatiron School!`.
 
-**Top Tip:** *The numbering of indexes begins at* `0`, *so the first character in a string is at "index 0". In the example above* `Flatiron School!` *begins at "index 15" or the 16<sup>th</sup> letter. This is true for array indexes also.*
+**Top Tip:** *The numbering of indexes begins at* `0`, *so the first character in a string is at "index 0". In the example above,* `Flatiron School!` *begins at "index 15" or the 16<sup>th</sup> letter. This is true for array indexes also.*
 
 ### Replacing Substrings
 
