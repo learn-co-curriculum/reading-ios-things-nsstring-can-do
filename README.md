@@ -113,7 +113,7 @@ The `stringByReplacingOccurencesOfString:withString:` method allows you to do ju
 ```objc
 NSString *instructorNames = @"Joe, Tim, Tom, Jim, &amp; Mark!";
 instructorNames = [instructorNames 
-    stringByReplacingOccurencesOfString:@"&amp;" withString:@"and"];
+    stringByReplacingOccurrencesOfString:@"&amp;" withString:@"and"];
 
 NSLog(@"%@", instructorNames);
 ```
@@ -122,9 +122,9 @@ This will print: `Joe, Tim, Tom, Jim, and Mark!`.
 We can a run it a second time to replace each comma (`,`) with an exclamation point (`!`).
 
 ```objc
-NSString *instructorNames = @"Joe, Tim, Tom, Jim, and Mark!"
+NSString *instructorNames = @"Joe, Tim, Tom, Jim, and Mark!";
 instructorNames = [instructorNames 
-    stringByReplacingOccurencesOfString:@"," withString:@"!"]; 
+    stringByReplacingOccurrencesOfString:@"," withString:@"!"]; 
 
 NSLog(@"%@", instructorNames);
 ```
@@ -142,6 +142,8 @@ if (isValidPassword) {
     NSLog(@"Welcome to the Flatiron School!");
 }
 ```
+This will print: `Welcome to the Flatiron School!`.
+
 **Top Tip:** *A common mistake in comparing strings is using the* `==` *("is identical to") comparator which will only return* `YES` *if the two strings are the exact same instance. This will rarely be the case when comparing strings so the* `isEqualToString` *method—which evaluates if the strings are equivalent—will almost always be the check that you want.* 
 
 There is the `caseInsensitiveCompare:` method which will ignore capitalization. It's equivalent to running `lowercaseString` on both strings and then comparing them with `isEqualToString:`, but that's more code and more work.
@@ -156,6 +158,7 @@ if (!isUniqueUsername) {
 	NSLog(@"That username is already taken.");
 }
 ```
+This will print: `That username is already taken`.
 
 The `compare:options:range:locale` method family will be useful once you learn how to select these different parameter types. For now, just learn about the two methods above.
 
@@ -231,11 +234,11 @@ Let's write a string interpolation which mixes a string variable with an integer
 NSString *mark = @"Mark";
 NSUInteger marksAge = 29;
 
-NSString *greeting = [NSString stringWithFormat:@"Hello, my name is %@! I am %lu years old", mark, marksAge]; 
+NSString *greeting = [NSString stringWithFormat:@"Hello, my name is %@! I am %lu years old.", mark, marksAge]; 
 
 NSLog(@"%@", greeting);
 ```
-This will print: `Hello, my name is Mark! I am 29 years old`.
+This will print: `Hello, my name is Mark! I am 29 years old.`.
 
 Did you notice how we called the `stringWithFormat:` method by sending it to `NSString` itself? That's because `stringWithFormat:`'s purpose is to create a new string—not to modify an existing string—so it's a method call that has to be sent to `NSString` itself. This makes `stringWithFormat:` a **class method**. We'll discuss this distinction in more detail when we talk about inheritance.
 
