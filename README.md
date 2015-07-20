@@ -210,7 +210,7 @@ Format specifiers fulfill the role of designating where a value belongs within t
 
 **Top Tip:** *The* `NSString` *notation for the '%' ("percent sign" or "modulus") itself is* `%%`. 
 
-Xcode will suggest a change if you enter a format specifier which doesn't correctly match up with the type of the variable that it links to, so don't stress yourself out about memorizing [all of the different format specifiers](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/Strings/Articles/formatSpecifiers.html) available for you to use. Most of the ones not including in the table above only have specific situations for which you'll need them and Xcode should point them out to you anyway.
+Xcode will suggest a change if you enter a format specifier which doesn't correctly match up with the type of the variable that it links to, so don't stress yourself out about memorizing [all of the different format specifiers](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/Strings/Articles/formatSpecifiers.html) available for you to use. Most of the ones not included in the table above only have specific situations for which you'll need them and Xcode should point them out to you anyway.
 
 #### Creating an Interpolated String
 
