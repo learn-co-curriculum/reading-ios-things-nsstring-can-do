@@ -1,5 +1,5 @@
 # NSString
-----
+
 ## Objectives:
 1. Understand the basic nature of a string.
 2. Learn the primary ways of manipulating strings.
