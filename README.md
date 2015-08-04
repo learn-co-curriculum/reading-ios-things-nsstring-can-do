@@ -167,12 +167,12 @@ NSString *whisperWelcome = @"welcome to the flatiron school!";
 NSString *whisperWelcomeUC = [whisperWelcome uppercaseString];
 
 if ([loudWelcome isEqualToString:whisperWelcomeUC]) {
-    NSLog(@"Speak up when you say that, silly!");
+    NSLog(@"WE LOVE THAT ENTHUSIASM!");
 } else {
-    NSLog(@"Are you sure you said that right?");
+    NSLog(@"Speak up when you say that!");
 }
 ```
-This will print: `Speak up when you say that, silly!`.
+This will print: `WE LOVE THAT ENTHUSIASM!`.
 
 ### Converting to NSInteger
 
