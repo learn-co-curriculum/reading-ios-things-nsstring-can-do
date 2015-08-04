@@ -32,6 +32,14 @@ There are many ways of creating strings, but this is the most common, especially
 
 Manipulating the case of a characters in a string can sometimes be useful. Calling `lowercaseString` converts all of the uppercase characters to lowercase characters, calling `uppercaseString` does the opposite, and calling `capitalizedString` will capitalize only the first letter of each word, as separated by a space or punctuation mark.
 
+```objc
+NSString *welcome = @"Welcome to the Flatiron School!";
+NSString *welcomeUppercasified = [welcome uppercaseString];
+
+NSLog(@"%@", welcomeUppercasified);
+```
+This will print: `WELCOME TO THE FLATIRON SCHOOL!`.
+
 ***A Note on Type Cases:***
 
 The Objective-C language utilizes a fusion of what are called "camel case" and "capital case." Both of these omit spaces in favor of capitalizing the first letter of each word. They differ in that camel case begins with a lowercase letter, while capital case begins with an uppercase letter.
@@ -69,6 +77,8 @@ if (isMarquis && isLafayette) {
 }
 ```
 This will print the Marquis' introduction.
+
+**Advanced:** *A* `BOOL` *is a type of variable that holds either a* `YES` *or a* `NO`. *The* `if` *statement evaluates* `BOOL`*s and makes a decision based on their statuses. We'll discuss these more in future readings.*
 
 ### String Concatenation
 
@@ -146,7 +156,25 @@ This will print: `Welcome to the Flatiron School!`.
 
 A common mistake in comparing strings is using the `==` ("is identical to") mathematical comparator. This **happens** to work with strings because of the way Objective-C handles them, but for all other objects, using the `==` comparator will only return `YES` if the two objects are the *exact same object (i.e. "instance").* This will rarely be the case when comparing objects so get accustomed to using the appropriate `isEqualTo...` method when working with objects. 
 
-#### Converting to NSInteger
+#### Evaluating Case
+
+You can combine the use of `isEqualToString:` method with the `uppercaseString`, `lowercaseString`, and `capitalizedString` methods to check the original string's case:
+
+```objc
+NSString *loudWelcome = @"WELCOME TO THE FLATIRON SCHOOL!";
+NSString *whisperWelcome = @"welcome to the flatiron school!";
+
+NSString *whisperWelcomeUC = [whisperWelcome uppercaseString];
+
+if ([loudWelcome isEqualToString:whisperWelcomeUC]) {
+    NSLog(@"Speak up when you say that, silly!");
+} else {
+    NSLog(@"Are you sure you said that right?");
+}
+```
+This will print: `Speak up when you say that, silly!`.
+
+### Converting to NSInteger
 
 A number saved as a string is visible to the processor as text—that's fine for humans to read, but math can't be performed on it. To convert a string to an `NSInteger`, there's a handy method named `integerValue` that you can run on a string which contains a value that you wish to access. While there's a method to convert a string to each of the data types, here's an example of the `integerValue` method:
 
@@ -224,6 +252,6 @@ NSLog(@"%@", greeting);
 ```
 This will print: `Hello, my name is Mark! I am 29 years old.`.
 
-Did you notice how we called the `stringWithFormat:` method by sending it to `NSString` itself? That's because `stringWithFormat:`'s purpose is to create a new string—not to modify an existing string—so it's a method call that has to be sent to `NSString` itself. This makes `stringWithFormat:` a **class method**. We'll discuss this distinction in more detail when we talk about inheritance.
+Did you notice how we called the `stringWithFormat:` method by sending it to `NSString` itself? That's because `stringWithFormat:`'s purpose is to create a new string—not to modify an existing string—so it's a method call that has to be sent to `NSString` itself. This makes `stringWithFormat:` a **class method**. We'll discuss this distinction in more detail when we talk about object orientation.
 
 
