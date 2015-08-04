@@ -130,9 +130,9 @@ NSLog(@"%@", instructorNames);
 ```
 This will print: `Joe! Tim! Tom! Jim! and Mark!`.
 
-### String Comparators
+### Matching Strings
 
-You can compare two strings to see if they are a match. There are several methods of varying precision which you can use to do this. Using the `isEqualToString:` method will only evaluate as true (return `YES`) if the strings are exactly alike. This is useful for something like a password check:
+You can compare two strings to see if they are a match. Using the `isEqualToString:` method will only evaluate as true (return `YES`) if the strings are exactly alike. This is useful for something like a password check:
 
 ```objc
 NSString *password = @"p@ssw0rd";
@@ -144,23 +144,7 @@ if (isValidPassword) {
 ```
 This will print: `Welcome to the Flatiron School!`.
 
-**Top Tip:** *A common mistake in comparing strings is using the* `==` *("is identical to") comparator which will only return* `YES` *if the two strings are the exact same instance. This will rarely be the case when comparing strings so the* `isEqualToString` *method—which evaluates if the strings are equivalent—will almost always be the check that you want.* 
-
-There is the `caseInsensitiveCompare:` method which will ignore capitalization. It's equivalent to running `lowercaseString` on both strings and then comparing them with `isEqualToString:`, but that's more code and more work.
-
-```objc
-NSString *username = @"mark";
-NSString *uppercaseUsername = @"MARK";
-
-BOOL isUniqueUsername = [username caseInsensitiveCompare:uppercaseUsername];
-
-if (!isUniqueUsername) {
-	NSLog(@"That username is already taken.");
-}
-```
-This will print: `That username is already taken`.
-
-The `compare:options:range:locale` method family will be useful once you learn how to select these different parameter types. For now, just learn about the two methods above.
+A common mistake in comparing strings is using the `==` ("is identical to") mathematical comparator. This **happens** to work with strings because of the way Objective-C handles them, but for all other objects, using the `==` comparator will only return `YES` if the two objects are the *exact same object (i.e. "instance").* This will rarely be the case when comparing objects so get accustomed to using the appropriate `isEqualTo...` method when working with objects. 
 
 #### Converting to NSInteger
 
