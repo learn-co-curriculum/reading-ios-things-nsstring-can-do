@@ -61,7 +61,7 @@ It is considered good practice to use camelCase for variable and method names, a
 
 ### String Prefix & Suffix
 
-Sometimes you need just need to look at how a string begins or ends, especially when you won't have that string until run time (perhaps one provided by a user). There are two simple methods named `hasPrefix:` and `hasSuffix:` which will ask the recipient string if it begins or ends respectively with the submitted substring.
+Sometimes you just need to look at how a string begins or ends, especially when you won't have that string until run time (perhaps one provided by a user). There are two simple methods named `hasPrefix:` and `hasSuffix:` which will ask the recipient string if it begins or ends respectively with the submitted substring.
 
 Let's use in our example the ridiculously long full name of the [Marquis de Lafayette](http://en.wikipedia.org/wiki/Gilbert_du_Motier,_Marquis_de_Lafayette).
 
