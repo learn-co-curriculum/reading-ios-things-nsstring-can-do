@@ -255,3 +255,5 @@ This will print: `Hello, my name is Mark! I am 29 years old.`.
 Did you notice how we called the `stringWithFormat:` method by sending it to `NSString` itself? That's because `stringWithFormat:`'s purpose is to create a new string—not to modify an existing string—so it's a method call that has to be sent to `NSString` itself. This makes `stringWithFormat:` a **class method**. We'll discuss this distinction in more detail when we talk about object orientation.
 
 
+
+<a href='https://learn.co/lessons/reading-ios-things-nsstring-can-do' data-visibility='hidden'>View this lesson on Learn.co</a>
