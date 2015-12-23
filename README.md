@@ -156,6 +156,8 @@ This will print: `Welcome to the Flatiron School!`.
 
 A common mistake in comparing strings is using the `==` ("is identical to") mathematical comparator. This **happens** to work with strings because of the way Objective-C handles them, but for all other objects, using the `==` comparator will only return `YES` if the two objects are the *exact same object (i.e. "instance").* This will rarely be the case when comparing objects so get accustomed to using the appropriate `isEqualTo...` method when working with objects. 
 
+The difference is that `==` compares the pointer and `isEqualTo` compares the value.
+
 #### Evaluating Case
 
 You can combine the use of `isEqualToString:` method with the `uppercaseString`, `lowercaseString`, and `capitalizedString` methods to check the original string's case:
