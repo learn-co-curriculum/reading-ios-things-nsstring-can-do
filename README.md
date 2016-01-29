@@ -256,4 +256,4 @@ Did you notice how we called the `stringWithFormat:` method by sending it to `NS
 
 
 
-<a href='https://learn.co/lessons/reading-ios-things-nsstring-can-do' data-visibility='hidden'>View this lesson on Learn.co</a>
+<p data-visibility='hidden'>View <a href='https://learn.co/lessons/reading-ios-things-nsstring-can-do' title='NSString'>NSString</a> on Learn.co and start learning to code for free.</p>
