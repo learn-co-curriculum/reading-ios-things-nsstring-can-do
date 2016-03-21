@@ -118,7 +118,7 @@ This prints: `Flatiron School!`.
 
 ### Replacing Substrings
 
-The `stringByReplacingOccurencesOfString:withString:` method allows you to do just that—create a new string with each of occurence of the first substring replaced with a new substring. That could be something as simple as replacing an `&amp;` with the word "and".
+The `stringByReplacingOccurencesOfString:withString:` method allows you to do just that—create a new string with each occurence of the first substring replaced with a new substring. That could be something as simple as replacing an `&amp;` with the word "and".
 
 ```objc
 NSString *instructorNames = @"Joe, Tim, Tom, Jim, &amp; Mark!";
@@ -257,3 +257,5 @@ Did you notice how we called the `stringWithFormat:` method by sending it to `NS
 
 
 <p data-visibility='hidden'>View <a href='https://learn.co/lessons/reading-ios-things-nsstring-can-do' title='NSString'>NSString</a> on Learn.co and start learning to code for free.</p>
+
+<p data-visibility='hidden'>View <a href='https://learn.co/lessons/reading-ios-things-nsstring-can-do'>NSString</a> on Learn.co and start learning to code for free.</p>
