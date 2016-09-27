@@ -52,7 +52,7 @@ Some other cases include:
 
 ```
 PascalCaseIsAnotherNameForCapitalCase
-hypen-case-is-common-in-bash
+hyphen-case-is-common-in-bash
 snake_case_is_common_in_windows
 ```
 It is considered good practice to use camelCase for variable and method names, and reserve capital case for class names. We'll explain this distinction between instances and classes in a later reading; for now, just recognize that there *is* a distinction.
@@ -259,3 +259,5 @@ Did you notice how we called the `stringWithFormat:` method by sending it to `NS
 <p data-visibility='hidden'>View <a href='https://learn.co/lessons/reading-ios-things-nsstring-can-do' title='NSString'>NSString</a> on Learn.co and start learning to code for free.</p>
 
 <p data-visibility='hidden'>View <a href='https://learn.co/lessons/reading-ios-things-nsstring-can-do'>NSString</a> on Learn.co and start learning to code for free.</p>
+
+<p class='util--hide'>View <a href='https://learn.co/lessons/reading-ios-things-nsstring-can-do'>NSString</a> on Learn.co and start learning to code for free.</p>
